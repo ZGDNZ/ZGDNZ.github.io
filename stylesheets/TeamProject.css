@@ -1,0 +1,56 @@
+@font-face { 
+  font-family: 'HYHeiLiZhiTiJ'; 
+  src: url('../fontfamily/HYHeiLiZhiTiJ.ttf') format('truetype'); 
+} 
+body{
+	background-color: black;
+	color: white;
+	position: relative;
+	width: 1320px;
+	height: 640px;
+}
+div{
+	text-align:center;
+	font-size: 65px;
+	margin: 30px 0;
+	font-family: 'HYHeiLiZhiTiJ','LiSu';
+	position: absolute;
+}
+#div1{
+	font-size: 180px;
+	left: 200px;
+	top: 10px;
+}
+#div2{
+	margin: 30px 0px;
+	left: 0px;
+	top: 150px;
+	display: none;
+	filter:alpha(opacity:0); 
+	opacity:0;
+
+}
+#div3{
+	margin: 15px 0;
+	font-size: 140px;
+	top: 230px;
+	left: 60px;
+}
+#div2 span{
+	margin: 0px 15px;
+}
+#div3 span{
+	color: #F9BDBD;
+	width: 700px;
+	display: inline-block;
+}
+img{
+	width: 200px;
+	height: 200px;
+	filter:alpha(opacity:60); 
+	opacity:0.6;
+	border-radius: 100px;
+}
+a{
+	text-decoration: none;
+}
