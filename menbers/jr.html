@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{
+	background-color: black;
+}
+#div1 {
+	width:300px; 
+	height:300px; 
+	background:#666666; 
+	filter:alpha(opacity:30); 
+	opacity:0.3;
+	margin: 30px auto;
+	border:2px solid;
+	border-radius:25px;
+}
+#div1 img{
+	width: 300px;
+	height: 300px;
+	border:2px solid;
+	border-radius:25px;
+}
+img{
+	float: left;
+}
+#div2{
+	display: none;
+	float: left;
+	filter:alpha(opacity:0); 
+	opacity:0;
+}
+#div2 ul{
+	padding: 1px 21px;
+	list-style: none;
+	font-family:"STCaiyun",Georgia,Serif;
+	font-size: 20px;
+	color: #FFFFBB;
+}
+#div2 ul li{
+	padding: 10px 0px;
+	border-bottom: 1px solid #FFFFBB;
+}
+#div3 {
+	display: none;
+	height:250px;
+	padding: 15px 15px;
+	font-family:"YouYuan",Georgia,Serif;
+	color: #FFFFBB;
+	clear: both;
+	filter:alpha(opacity:0); 
+	opacity:0;
+	position:relative;
+}
+#div3 img{height: 47px;width: 48px; position:absolute;bottom:10px;right:10px;}
+#div3 img:hover{-webkit-animation-name:'fisheye';-webkit-animation-duration:3s;-webkit-animation-iteration-count:infinite;  }
+@-webkit-keyframes 'fisheye'{
+	0%{
+		-webkit-transform:scale(1);
+	}
+	50%{
+		-webkit-transform:scale(1.2);
+	}
+	100%{
+		-webkit-transform:scale(1);
+	}
+}
+#div3 span{font-size: 50px;color:rosybrown;font-family: "微软雅黑";}
+#div3 #andO{font-size: 80px;color: silver;position: absolute;bottom: 0;left: 200px;}
+#div3 #andT{font-size: 80px;color: silver;position: absolute;bottom: 0;right: 150px;}
+#div3 #young{position: absolute;top:0;left: 30px;}
+#div3 #wild{position: absolute;top:0;right: 250px;}
+#div3 #free{position: absolute;top:0;right: 70px;}
+</style>
+<script src="../javascript/move.js"></script>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	var oDiv2 = document.getElementById("div2");
+	var oDiv3 = document.getElementById("div3");
+	var cute = document.getElementById("cute");
+	var young = document.getElementById('young');
+	var wild = document.getElementById('wild');
+	var free = document.getElementById('free');
+	var andO = document.getElementById('andO');
+	var andT = document.getElementById('andT');
+
+	oDiv.onmouseover=function (e)
+	{
+		
+		startMove(oDiv, {width : 600},8, function (){
+			startMove(oDiv, {height : 600},8, function (){
+				startMove(oDiv, {opacity : 100},8,function(){
+					oDiv2.style.display = "block";
+					startMove(oDiv2,{opacity : 100},6);
+					oDiv3.style.display = "block";
+					startMove(oDiv3,{opacity : 100},6,function(){
+						startMove(cute,{bottom:10},6,function(){
+							startMove(cute,{right:10},6);
+						});
+						startMove(andO,{bottom:150},6,function(){
+							startMove(young,{top:10},6,function(){
+								startMove(wild,{top:100},6,function(){
+									startMove(free,{top:200},6);
+								});
+							});
+						});
+						startMove(andT,{bottom:50},6);
+					});
+				});
+			});
+		});
+	};
+	
+	oDiv.onmouseleave=function (e)
+	{
+		startMove(oDiv2,{opacity : 0},6);
+		oDiv2.style.display = "none";
+		startMove(oDiv3,{opacity : 0},6);
+		oDiv3.style.display = "none";
+		startMove(oDiv, {opacity : 30},6);
+		startMove(oDiv, { height: 300}, 6, function(){
+           startMove(oDiv, { width: 300}, 6);
+		});
+		
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<img src="images/3/jr.jpg" >
+	<div id="div2">
+		<ul>
+			<li>姓名：贾蕊</li>
+			<li>邮箱：345322941@qq.com</li>
+			<li>爱好：吃,睡,玩,笑？</li>
+			<li>至今很迷茫</li>
+			<li>但是学习js后开始喜欢前端</li>
+			<li>以后会努力的~ 嗯！</li>
+		</ul>
+	</div>
+	<div id="div3">
+		<div></div>
+		<span id="young">young</span>
+		<span id="andO">&</span>
+		<span id="wild">wild</span>
+		<span id="andT">&</span>
+		<span id="free">free</span>
+		<a href="../index.html"><img id="cute" src="images/3/cute.png" height="47" width="48"></a>
+	</div>
+</div>
+</body>
+</html>

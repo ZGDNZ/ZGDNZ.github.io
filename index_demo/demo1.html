@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+@font-face { 
+  font-family: 'HYHeiLiZhiTiJ'; 
+  src: url('HYHeiLiZhiTiJ.ttf') format('truetype'); 
+} 
+body{
+	/*width: 1300px;*/
+	background-color: black;
+	color: white;
+	position: relative;
+	/*overflow: hidden;*/
+	width: 1320px;
+	height: 640px;
+	margin: 0 auto;
+}
+div{
+	/*margin: 1px auto;*/
+	text-align:center;
+	font-size: 65px;
+	margin: 50px 0px;
+	font-family: 'HYHeiLiZhiTiJ','LiSu';
+	position: absolute;
+}
+#div1{
+	left: 500px;
+	top: -110px;
+}
+#div2{
+	margin: 60px 0px;
+	left: 300px;
+	left: 0px;
+	top: 150px;
+}
+#div3{
+	left: 250px;
+	top: 600px;
+}
+#div2 span{
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	margin: 0px 15px;
+}
+#div3 span{
+	filter:alpha(opacity:0); 
+	opacity:0;
+	/*color: #B0C4DE;*/
+	color: #F9BDBD;
+}
+img{
+	width: 1px;
+	height: 1px;
+	filter:alpha(opacity:60); 
+	opacity:0.6;
+	border-radius: 100px;
+	border-color: black;
+}
+a{
+	text-decoration: none;
+}
+
+</style>
+<script src="move3.js"></script>
+<script>
+	window.onload=function()
+	{
+		var oFather = document.getElementsByTagName('body')[0];
+		var oDiv2 = document.getElementById('div2');
+		var oImg = oDiv2.getElementsByTagName('img');
+
+		for(var i=0;i<(oImg.length);i++)
+		{
+			startMove(oImg[i],{width:200,height:200},10,function(){
+				for(var j=0;j<(oImg.length);j++)
+				{
+					oImg[j].onmouseover = function()
+					{
+						startMove(this,{borderRadius : 20,opacity : 100},15);
+					}
+					oImg[j].onmouseout = function()
+					{
+						startMove(this,{borderRadius : 100,opacity : 60},15);
+					}
+				}
+			})
+		}
+
+		var oDiv1 = document.getElementById('div1');
+		var oDiv3 = document.getElementById('div3');
+		var oSpan = oDiv3.getElementsByTagName('span');
+		
+		startMove(oDiv1,{top : 0},15,function(){
+			startMove(oDiv3,{top : 450},15,function(){
+				startMove(oSpan[0],{opacity : 100},15);
+			});
+		});
+		// setTimeout(startMove(oDiv3,{top : 450},function(){},1500),20000);
+	}
+</script>
+</head>
+
+<body>
+<div id="div1">
+	少壮不努力
+</div>
+<div id="div2">
+	<span><a href="LiChenyun.html"><img src="images/1/1.png" alt="李晨云"></a></span>
+	<span><a href="myInfo_lj.html"><img src="images/2/photo.JPG" alt="刘静"></a></span>
+	<span><a href="jr.html"><img src="images/3/jr.jpg" alt="贾蕊"></a></span>
+	<span><a href="lxw.html"><img src="images/4/lxw.png" alt="罗显维"></a></span>
+	<span><a href="sophiehui.html"><img src="images\5\sophiehui.png" alt="贺隆慧"></a></span>
+</div>
+<div id="div3">
+	不如【<span>自挂东南枝</span>】(ง •̀_•́)ง
+</div>
+</body>
+</html>
