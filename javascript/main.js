@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 window.onload=function()
 {
 	var oDiv2 = document.getElementById('div2');
@@ -43,7 +42,6 @@ window.onload=function()
 		startMove(oSpan,{width : 350},8);
 	},3000)
 	
-=======
 window.onload=function()
 {
 	var oDiv2 = document.getElementById('div2');
@@ -87,6 +85,4 @@ window.onload=function()
 		})
 		startMove(oSpan,{width : 350},8);
 	},3000)
-	
->>>>>>> origin/master
 }
