@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -134,3 +135,141 @@ window.onload=function ()
 </div>
 </body>
 </html>
+=======
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>李晨云的主页</title>
+<style>
+body{
+	background-color: black;
+}
+#div1 {
+	width:300px; 
+	height:300px; 
+	background:#666666; 
+	filter:alpha(opacity:30); 
+	opacity:0.3;
+	margin: 30px auto;
+	border:2px solid;
+	border-radius:25px;
+}
+#div1 img{
+	width: 300px;
+	height: 300px;
+	border:2px solid;
+	border-radius:25px;
+}
+img{
+	float: left;
+}
+#div2{
+	display: none;
+	float: left;
+	filter:alpha(opacity:0); 
+	opacity:0;
+}
+#div2 ul{
+	padding: 1px 21px;
+	list-style: none;
+	font-family:"STCaiyun",Georgia,Serif;
+	font-size: 20px;
+	color: #FFFFBB;
+}
+#div2 ul li{
+	padding: 10px 0px;
+	border-bottom: 1px solid #FFFFBB;
+}
+#div3 {
+	display: none;
+	padding: 45px;
+	font-family:"YouYuan",Georgia,Serif;
+	color: #FFFFBB;
+	clear: both;
+	filter:alpha(opacity:0); 
+	opacity:0;
+}
+#div3 p{
+	font-size: 45px;
+	padding: 30px;
+}
+#div4{
+	width: 128px;
+	height: 128px;
+	margin: 90px auto;
+	filter:alpha(opacity:30); 
+	opacity:0.3;
+}
+</style>
+<script src="../javascript/move.js"></script>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	var oDiv2 = document.getElementById("div2");
+	var oDiv3 = document.getElementById("div3");
+	var oDiv4 = document.getElementById("div4");
+
+	oDiv.onmouseover = function ()
+	{
+		oDiv4.style.display = "none";
+		
+		startMove(oDiv, {width : 600},8, function (){
+			startMove(oDiv, {height : 600},8, function (){
+				startMove(oDiv, {opacity : 100},8,function(){
+					oDiv2.style.display = "block";
+					startMove(oDiv2,{opacity : 100},6);
+					oDiv3.style.display = "block";
+					startMove(oDiv3,{opacity : 100},6);
+				});
+			});
+		});
+	};
+	
+	oDiv.onmouseleave = function ()
+	{
+		startMove(oDiv2,{opacity : 0},6);
+		oDiv2.style.display = "none";
+		startMove(oDiv3,{opacity : 0},6);
+		oDiv3.style.display = "none";
+		startMove(oDiv, {height : 300},6, function (){
+			startMove(oDiv, {width : 300},6);
+		});
+		oDiv4.style.display = "block";
+	};
+	oDiv4.onmouseover = function()
+	{
+		startMove(oDiv4,{opacity : 100},2);
+	}
+	oDiv4.onmouseout = function()
+	{
+		startMove(oDiv4,{opacity : 30},2);
+	}
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<img src="../images/1/1.png" >
+	<div id="div2">
+		<ul>
+			<li>姓名：李晨云</li>
+			<li>邮箱：953704303@QQ.com</li>
+			<li>爱好：多得列不下啦</li>
+			<li>特长：头发特长</li>
+			<li>技能点：点歪在了手工上</li>
+			<li>那么，一起努力吧！</li>
+		</ul>
+	</div>
+	<div id="div3">
+		<p>听说这就是自我介绍:)</p>
+	</div>
+</div>
+<div id="div4">
+	<a href="../index.html"><img src="../images/1/catlover.png"></a>
+</div>
+</body>
+</html>
+>>>>>>> origin/master
