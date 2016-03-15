@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>无标题文档</title>
+<title>李晨云的主页</title>
 <style>
 body{
 	background-color: black;
@@ -64,7 +64,7 @@ img{
 	opacity:0.3;
 }
 </style>
-<script src="../javascripts/move.js"></script>
+<script src="../javascript/move.js"></script>
 <script>
 window.onload=function ()
 {
@@ -95,12 +95,10 @@ window.onload=function ()
 		oDiv2.style.display = "none";
 		startMove(oDiv3,{opacity : 0},6);
 		oDiv3.style.display = "none";
-		// startMove(oDiv, {opacity : 30},6,function (){
-			startMove(oDiv, {height : 300},6, function (){
-				startMove(oDiv, {width : 300},6);
-			});
-			oDiv4.style.display = "block";
-		// });
+		startMove(oDiv, {height : 300},6, function (){
+			startMove(oDiv, {width : 300},6);
+		});
+		oDiv4.style.display = "block";
 	};
 	oDiv4.onmouseover = function()
 	{
@@ -132,7 +130,7 @@ window.onload=function ()
 	</div>
 </div>
 <div id="div4">
-	<a href="../index.html"><img src="..\images\1\catlover.png"></a>
+	<a href="../index.html"><img src="../images/1/catlover.png"></a>
 </div>
 </body>
 </html>
