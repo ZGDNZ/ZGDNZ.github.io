@@ -1,0 +1,6 @@
+#wrap .error{
+    color: red;
+}
+#aqi-table,#aqi-table td{
+    border: 1px solid #333;
+}
