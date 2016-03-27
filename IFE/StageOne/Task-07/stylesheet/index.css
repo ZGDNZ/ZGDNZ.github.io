@@ -345,7 +345,7 @@ header ul li a:hover,header .login a{
 	/*border: 1px solid white;*/
 }
 .sec6 .sec6_word h1{
-	display: block;
+	display: inline-block;
 	margin:  0px auto;
 	font-size: 25px;
 	font-weight: 600;
@@ -522,7 +522,7 @@ header ul li a:hover,header .login a{
 	height: 460px;
 }
 .sec9 .sec9_left{
-	display: block;
+	display: inline-block;
 	float: left;
 	width: 305px;
 	height: 288px;
@@ -546,7 +546,7 @@ header ul li a:hover,header .login a{
 	margin-right: 5px;
 }
 .sec9 .sec9_right{
-	display: block;
+	display: inline-block;
     float: right;
 	width: 700px;
 	height: 300px;
