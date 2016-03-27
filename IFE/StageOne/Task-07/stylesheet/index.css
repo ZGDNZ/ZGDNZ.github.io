@@ -511,16 +511,18 @@ header ul li a:hover,header .login a{
 
 /*------------------------section9-------------------------*/
 .sec9{
-	min-width: 1280px;
+    width: 1280px;   
+ 	min-width: 1280px;
 	height: 460px;
 }
 .sec9 .wrap{
 	margin: 0px auto;
-	width: 90%;
+	width: 1280px;
+    min-width: 1280px;
 	height: 460px;
 }
 .sec9 .sec9_left{
-	display: inline-block;
+	display: block;
 	float: left;
 	width: 305px;
 	height: 288px;
@@ -544,7 +546,8 @@ header ul li a:hover,header .login a{
 	margin-right: 5px;
 }
 .sec9 .sec9_right{
-	display: inline-block;
+	display: block;
+    float: right;
 	width: 700px;
 	height: 300px;
 
