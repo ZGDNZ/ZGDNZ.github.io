@@ -111,14 +111,16 @@ window.onload = function(){
             return array;
         }
         var temp;
-        clearInterval(timer1);
+        clearTimeout(timer1);
         out();
         function out(){
+            clearInterval(timer2);
             timer1 = setTimeout(function(){
                 clearInterval(timer2);
                 if(i >= 1){
                     j = 0;
                     timer2 = setInterval(function(){
+                        clearTimeout(timer1);
                         if(j <= i){
                             if(array[j] > array[j+1]){
                                 exchangeElem(oUl.children[j], oUl.children[j+1]);
@@ -128,28 +130,17 @@ window.onload = function(){
                             }
                         }else{
                             out();
-                            clearInterval(timer2);
                         }
                         j++;
                     },8);
                 }
                 else{
-                    clearInterval(timer1);
+                    clearTimeout(timer1);
                 }
                 i--;
             },30);
         }
         return array;
-        /*for(i=len-1;i>=1;i--){
-            for(j=0;j<=i-1;j++){
-                if(array[j]>array[j+1]){
-                    exchangeElem(oUl.children[j], oUl.children[j+1]);
-                    temp=array[j+1];
-                    array[j+1]=array[j];
-                    array[j]=temp;
-                }
-            }
-        }*/
     }
     function sort(event){
         event = eventUtil.getEvent(event);
