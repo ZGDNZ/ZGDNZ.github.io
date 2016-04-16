@@ -1,0 +1,45 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+#queue{
+    margin: 0 auto;
+    width: 620px;
+    height: 30px;
+}
+.input{
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 5px #AAAAAA;
+    font-size: 14px;
+}
+.button{
+    width: 100px;
+    height: 30px;
+    background: cadetblue;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 5px #AAAAAA;
+}
+#wrap{
+
+}
+#wrap ul{
+
+}
+#wrap ul li{
+    list-style: none;
+    display: inline-block;
+    height: 30px;
+    padding: 0px 5px;
+    color: dimgrey;
+    line-height: 30px;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 14px;
+    background: greenyellow;
+    box-shadow: 0px 0px 5px #AAAAAA;
+    border-radius: 10px;
+}

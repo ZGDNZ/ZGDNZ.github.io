@@ -38,7 +38,6 @@ function startMove(obj, json, sp, fnEnd)
 			
 			if(cur!=json[attr])
 				bStop=false;
-			
 			if(attr=='opacity')
 			{
 				obj.style.filter='alpha(opacity:'+(cur+speed)+')';
