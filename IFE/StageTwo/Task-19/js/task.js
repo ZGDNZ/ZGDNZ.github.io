@@ -116,11 +116,9 @@ window.onload = function(){
         function out(){
             timer1 = setTimeout(function(){
                 clearInterval(timer2);
-                console.log("i="+i);
                 if(i >= 1){
                     j = 0;
                     timer2 = setInterval(function(){
-                        console.log("j="+j);
                         if(j <= i){
                             if(array[j] > array[j+1]){
                                 exchangeElem(oUl.children[j], oUl.children[j+1]);
