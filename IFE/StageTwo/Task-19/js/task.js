@@ -9,6 +9,7 @@ window.onload = function(){
         oSort = queue.sort,
         randomCreate = queue.randomCreate,
         signal = "",
+        sorting = false,
         oUl = document.createElement("ul");
 
     /*
@@ -71,13 +72,6 @@ window.onload = function(){
         }
     }
 
-    function getData(){
-        var data = [];
-        for(var i = 0; i < oUl.children.length; i++){
-            data[data.length] = parseInt(oUl.children[i].style.height);
-        }
-        return data;
-    }
 
     /*
     *随机产生数据
@@ -88,30 +82,51 @@ window.onload = function(){
             input.value = Math.floor(Math.random() * 90 + 10);
             createElement("leftIn");
         }
+        input.value = "";
     }
 
-
-
-
-    function exchangeElem(elem1, elem2){
-            var temp = elem1;
-            oUl.insertBefore(elem1, elem2);
-            oUl.insertBefore(elem2, temp);
-    }
     /*
-    *冒泡排序
+     *获取当前ul下全部li的高度
      */
-    function sortBubble(array){
-        var len=array.length,
+    function getData(){
+        var data = [];
+        for(var i = 0; i < oUl.children.length; i++){
+            data[data.length] = parseInt(oUl.children[i].style.height);
+        }
+        return data;
+    }
+
+    /*
+     *交换两个节点的位置
+     */
+    function exchangeElem(elem1, elem2){
+         var t1 = elem1.nextSibling,
+             t2 = elem2.nextSibling;
+        if(t1){
+            oUl.insertBefore(elem2,t1);
+        }else{
+            oUl.appendChild(elem2);
+        }
+        if(t2){
+            oUl.insertBefore(elem1,t2);
+        }else{
+            oUl.appendChild(elem1);
+        }
+    }
+
+    var timer1 = null,
+        timer2 = null;
+    /*
+     *冒泡排序
+     */
+    function sortBubble(data){
+        var len = data.length,
             i = len-1,
-            j,
-            timer1 = null,
-            timer2 = null;
+            j;
         if (len < 1) {
-            return array;
+            return data;
         }
         var temp;
-        clearTimeout(timer1);
         out();
         function out(){
             clearInterval(timer2);
@@ -122,36 +137,46 @@ window.onload = function(){
                     timer2 = setInterval(function(){
                         clearTimeout(timer1);
                         if(j <= i){
-                            if(array[j] > array[j+1]){
+                            if(data[j] > data[j+1]){
                                 exchangeElem(oUl.children[j], oUl.children[j+1]);
-                                temp = array[j+1];
-                                array[j+1] = array[j];
-                                array[j] = temp;
+                                temp = data[j+1];
+                                data[j+1] = data[j];
+                                data[j] = temp;
                             }
                         }else{
+                            clearTimeout(timer1);
                             out();
                         }
                         j++;
                     },8);
                 }
                 else{
+                    sorting = false;
                     clearTimeout(timer1);
                 }
                 i--;
             },30);
         }
-        return array;
-    }
-    function sort(event){
-        event = eventUtil.getEvent(event);
-        eventUtil.preventDefault(event);
-        sortBubble(getData());
+        return data;
     }
 
+    /*
+     *绑定事件
+     */
     eventUtil.addHandler(leftIn, "click", select);
     eventUtil.addHandler(rightIn, "click", select);
     eventUtil.addHandler(leftOut, "click", select);
     eventUtil.addHandler(rightOut, "click", select);
-    eventUtil.addHandler(oSort, "click", sort);
     eventUtil.addHandler(randomCreate, "click", initData);
+    eventUtil.addHandler(oSort, "click", function(event){
+        event = eventUtil.getEvent(event);
+        eventUtil.preventDefault(event);
+        if(sorting){
+            alert("in sorting");
+            return 0;
+        }
+        sorting = true;
+        sortBubble(getData());
+    });
+
 }
