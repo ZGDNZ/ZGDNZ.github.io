@@ -22,7 +22,9 @@ window.onload = function(){
 
 
     wrap.appendChild(oUl);
-
+    /*
+     *渲染
+     */
     function createElement(signal,event){
         event = eventUtil.getEvent(event);
         eventUtil.preventDefault(event);
@@ -53,7 +55,9 @@ window.onload = function(){
                 break;
         }
     }
-    //
+    /*
+     *检测输入
+     */
     function select(event){
         var patten = (/^[0-9]+$/);
         event = eventUtil.getEvent(event);
@@ -121,8 +125,7 @@ window.onload = function(){
      */
     function sortBubble(data){
         var len = data.length,
-            i = len-1,
-            j;
+            i = len-1;
         if (len < 1) {
             return data;
         }
@@ -131,9 +134,8 @@ window.onload = function(){
         function out(){
             clearInterval(timer2);
             timer1 = setTimeout(function(){
-                clearInterval(timer2);
                 if(i >= 1){
-                    j = 0;
+                    var j = 0;
                     timer2 = setInterval(function(){
                         clearTimeout(timer1);
                         if(j <= i){
@@ -178,5 +180,4 @@ window.onload = function(){
         sorting = true;
         sortBubble(getData());
     });
-
 }
