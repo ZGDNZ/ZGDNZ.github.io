@@ -139,7 +139,7 @@ window.onload = function(){
                     clearInterval(timer1);
                 }
                 i--;
-            },300);
+            },30);
         }
         return array;
         /*for(i=len-1;i>=1;i--){
