@@ -105,26 +105,42 @@ window.onload = function(){
         var len=array.length,
             i = len-1,
             j,
-            timer = null;
+            timer1 = null,
+            timer2 = null;
         if (len < 1) {
             return array;
         }
         var temp;
-        timer = setInterval(function(){
-            if(i >= 1){
-                for(var j = 0; j <= i-1; j++){
-                    if(array[j]>array[j+1]){
-                        exchangeElem(oUl.children[j], oUl.children[j+1]);
-                        temp=array[j+1];
-                        array[j+1]=array[j];
-                        array[j]=temp;
-                    }
+        clearInterval(timer1);
+        out();
+        function out(){
+            timer1 = setTimeout(function(){
+                clearInterval(timer2);
+                console.log("i="+i);
+                if(i >= 1){
+                    j = 0;
+                    timer2 = setInterval(function(){
+                        console.log("j="+j);
+                        if(j <= i){
+                            if(array[j] > array[j+1]){
+                                exchangeElem(oUl.children[j], oUl.children[j+1]);
+                                temp = array[j+1];
+                                array[j+1] = array[j];
+                                array[j] = temp;
+                            }
+                        }else{
+                            out();
+                            clearInterval(timer2);
+                        }
+                        j++;
+                    },8);
                 }
-                i++;
-            }else{
-                clearInterval(timer);
-            }
-        },300);
+                else{
+                    clearInterval(timer1);
+                }
+                i--;
+            },300);
+        }
         return array;
         /*for(i=len-1;i>=1;i--){
             for(j=0;j<=i-1;j++){
@@ -136,7 +152,6 @@ window.onload = function(){
                 }
             }
         }*/
-
     }
     function sort(event){
         event = eventUtil.getEvent(event);
