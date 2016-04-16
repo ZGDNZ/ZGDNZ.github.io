@@ -28,6 +28,7 @@
 }
 #wrap ul{
     position: relative;
+    min-width: 704px;
     width: 90%;
     overflow: hidden;
     box-shadow: 0px 0px 5px #999999;
